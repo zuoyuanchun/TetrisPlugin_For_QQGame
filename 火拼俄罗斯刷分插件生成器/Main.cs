@@ -90,7 +90,7 @@ namespace QQGameTool
             }
             if (!reg.IsRegistryValueNameExist(Data.reg授权码))
             {
-                reg.SetValue(Data.reg授权码, "0");
+                reg.SetValue(Data.reg授权码, "1177161017");
             }
             if (!reg.IsRegistryValueNameExist(Data.reg游戏路径))
             {

@@ -1,0 +1,12 @@
+D:\VS2013\Liscense\火拼俄罗斯刷分\火拼俄罗斯刷分插件生成器.exe.config
+D:\VS2013\Liscense\火拼俄罗斯刷分\火拼俄罗斯刷分插件生成器.exe.manifest
+D:\VS2013\Liscense\火拼俄罗斯刷分\火拼俄罗斯刷分插件生成器.application
+D:\VS2013\Liscense\火拼俄罗斯刷分\火拼俄罗斯刷分插件生成器.exe
+D:\VS2013\Liscense\火拼俄罗斯刷分\火拼俄罗斯刷分插件生成器.pdb
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯刷分插件生成器\obj\Release\QQGameTool.Main.resources
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯刷分插件生成器\obj\Release\QQGameTool.Properties.Resources.resources
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯刷分插件生成器\obj\Release\火拼俄罗斯刷分插件生成器.csproj.GenerateResource.Cache
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯刷分插件生成器\obj\Release\火拼俄罗斯刷分插件生成器.exe.manifest
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯刷分插件生成器\obj\Release\火拼俄罗斯刷分插件生成器.application
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯刷分插件生成器\obj\Release\火拼俄罗斯刷分插件生成器.exe
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯刷分插件生成器\obj\Release\火拼俄罗斯刷分插件生成器.pdb

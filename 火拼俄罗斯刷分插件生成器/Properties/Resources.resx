@@ -118,23 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="AxInterop_WMPLib" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AxInterop.WMPLib.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Interop_WMPLib" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Interop.WMPLib.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="LoliCore32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LoliCore32.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="System" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\system.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="System_Drawing" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\system.drawing.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="System_Windows_Forms" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\system.windows.forms.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TData" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TData;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

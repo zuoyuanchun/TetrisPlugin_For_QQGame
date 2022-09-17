@@ -63,59 +63,9 @@ namespace QQGameTool.Properties {
         /// <summary>
         ///   查找 System.Byte[] 类型的本地化资源。
         /// </summary>
-        internal static byte[] AxInterop_WMPLib {
-            get {
-                object obj = ResourceManager.GetObject("AxInterop_WMPLib", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] Interop_WMPLib {
-            get {
-                object obj = ResourceManager.GetObject("Interop_WMPLib", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
         internal static byte[] LoliCore32 {
             get {
                 object obj = ResourceManager.GetObject("LoliCore32", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] System {
-            get {
-                object obj = ResourceManager.GetObject("System", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] System_Drawing {
-            get {
-                object obj = ResourceManager.GetObject("System_Drawing", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] System_Windows_Forms {
-            get {
-                object obj = ResourceManager.GetObject("System_Windows_Forms", resourceCulture);
                 return ((byte[])(obj));
             }
         }

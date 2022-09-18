@@ -653,7 +653,10 @@ namespace QQGameTool
             link个人博客.LinkVisited = true;
             System.Diagnostics.Process.Start("https://blog.csdn.net/zuoyuanchun");
         }
-
+        private void linkUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://2950800.ysepan.com/");
+        }
         private void Key输入框_MouseClick(object sender, MouseEventArgs e)
         {
             if (Key输入框.TextLength > 0)
@@ -698,6 +701,8 @@ namespace QQGameTool
             检查授权状态();
         }
         #endregion
+
+        
 
         
     }

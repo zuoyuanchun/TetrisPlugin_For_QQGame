@@ -102,6 +102,7 @@
             this.link教学视频 = new System.Windows.Forms.LinkLabel();
             this.about = new System.Windows.Forms.Label();
             this.TiShi辅助说明 = new System.Windows.Forms.ToolTip(this.components);
+            this.linkUpdate = new System.Windows.Forms.LinkLabel();
             this.tabControl1.SuspendLayout();
             this.界面定制.SuspendLayout();
             this.Group12显示效果.SuspendLayout();
@@ -1082,6 +1083,7 @@
             // 
             // 关于软件
             // 
+            this.关于软件.Controls.Add(this.linkUpdate);
             this.关于软件.Controls.Add(this.Key输入框);
             this.关于软件.Controls.Add(this.web浏览器);
             this.关于软件.Controls.Add(this.link个人博客);
@@ -1108,12 +1110,12 @@
             // 
             // web浏览器
             // 
-            this.web浏览器.Location = new System.Drawing.Point(5, 74);
+            this.web浏览器.Location = new System.Drawing.Point(5, 84);
             this.web浏览器.Margin = new System.Windows.Forms.Padding(2);
             this.web浏览器.MinimumSize = new System.Drawing.Size(15, 16);
             this.web浏览器.Name = "web浏览器";
             this.web浏览器.ScriptErrorsSuppressed = true;
-            this.web浏览器.Size = new System.Drawing.Size(562, 340);
+            this.web浏览器.Size = new System.Drawing.Size(562, 330);
             this.web浏览器.TabIndex = 4;
             this.web浏览器.TabStop = false;
             this.web浏览器.Url = new System.Uri("https://space.bilibili.com/1177161017", System.UriKind.Absolute);
@@ -1128,7 +1130,7 @@
             this.link个人博客.Size = new System.Drawing.Size(98, 21);
             this.link个人博客.TabIndex = 3;
             this.link个人博客.TabStop = true;
-            this.link个人博客.Text = "检查更新";
+            this.link个人博客.Text = "个人博客";
             this.link个人博客.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.TiShi辅助说明.SetToolTip(this.link个人博客, "点击后可解除授权码输入锁定状态");
             this.link个人博客.VisitedLinkColor = System.Drawing.Color.Black;
@@ -1165,6 +1167,20 @@
             this.TiShi辅助说明.InitialDelay = 10;
             this.TiShi辅助说明.IsBalloon = true;
             this.TiShi辅助说明.ReshowDelay = 100;
+            // 
+            // linkUpdate
+            // 
+            this.linkUpdate.AutoSize = true;
+            this.linkUpdate.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linkUpdate.Location = new System.Drawing.Point(296, 38);
+            this.linkUpdate.Name = "linkUpdate";
+            this.linkUpdate.Size = new System.Drawing.Size(98, 21);
+            this.linkUpdate.TabIndex = 5;
+            this.linkUpdate.TabStop = true;
+            this.linkUpdate.Text = "检查更新";
+            this.linkUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkUpdate.VisitedLinkColor = System.Drawing.Color.Black;
+            this.linkUpdate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUpdate_LinkClicked);
             // 
             // Main
             // 
@@ -1286,6 +1302,7 @@
         private System.Windows.Forms.Button Do1恢复默认;
         private System.Windows.Forms.CheckBox tp6数据统计;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.LinkLabel linkUpdate;
     }
 }
 

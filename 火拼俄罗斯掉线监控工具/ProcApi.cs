@@ -113,7 +113,6 @@ namespace TetrisMonitor
         /// <returns>返回窗口句柄</returns>
         [DllImport("user32.dll")]
         public static extern IntPtr GetForegroundWindow();
-
         /// <summary>
         /// 通过窗口句柄获取线程ID(TID)和进程ID(PID)
         /// </summary>
@@ -179,10 +178,18 @@ namespace TetrisMonitor
         const int WM_GETTEXT = 0x000D;
         const int WM_GETTEXTLENGTH = 0x000E;
         const int WM_CLOSE = 0x10;
-
+        const int SW_HIDE = 0;
+        const int SW_NORMAL = 1;
+        const int SW_MAXIMIZE = 3;
+        const int SW_SHOWNOACTIVATE = 4;
+        const int SW_SHOW = 5;
+        const int SW_MINIMIZE = 6;
+        const int SW_RESTORE = 9;
+        const int SW_SHOWDEFAULT = 10;
         #endregion
         #region 声明变量类
         internal static int[] ProcID;
+        internal static IntPtr[] ThrdID;
         internal static DateTime[] StartTime;
         internal static long[] QQid;
         #endregion
@@ -281,6 +288,7 @@ namespace TetrisMonitor
                     if (ps[n].MainWindowTitle.Contains("火拼俄罗斯方块"))
                     {
                         ProcID[n] = ps[n].Id;
+                       // ThrdID[n] = ps[n].Handle;
                         StartTime[n] = ps[n].StartTime;
                         QQid[n] = GetQQ获取游戏账号(ProcID[n]);
                     }
@@ -304,10 +312,11 @@ namespace TetrisMonitor
             {
                 if (ps.Modules[mo].ModuleName == "CUQGEx.ocx")
                 {
-                    MBA模块基址 = ps.Modules[mo].BaseAddress;
-                    TBA特征基址 = MBA模块基址 + 167464;//HEX:28E28
+                    MBA模块基址 = ps.Modules[mo].BaseAddress;//模块基址
+                    TBA特征基址 = MBA模块基址 + 167464;//HEX:28E28(HEX值:5151BAC5→GB2312:QQ号)
                     QBA账号基址 = TBA特征基址 - 52;//HEX:34
-                    for (int q = 0; q < 50; q++)
+                    //轮询60次(6秒钟),解决do while循环体卡死的问题
+                    for (int q = 0; q < 60; q++)
                     {
                         QQID账号 = ReadMemoryValue((int)QBA账号基址, pid);
                         if (QQID账号 > 10000) 

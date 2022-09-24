@@ -1,0 +1,12 @@
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯掉线监控工具\obj\Debug\Interop.WMPLib.dll
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯掉线监控工具\obj\Debug\AxInterop.WMPLib.dll
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯掉线监控工具\obj\Debug\火拼俄罗斯掉线监控工具.csproj.ResolveComReference.cache
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯掉线监控工具\obj\Debug\TetrisMonitor.Main.resources
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯掉线监控工具\obj\Debug\TetrisMonitor.Properties.Resources.resources
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯掉线监控工具\obj\Debug\火拼俄罗斯掉线监控工具.csproj.GenerateResource.Cache
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯掉线监控工具\obj\Debug\火拼俄罗斯掉线监控工具.csprojResolveAssemblyReference.cache
+D:\Liscense\火拼俄罗斯掉线监控\火拼俄罗斯掉线监控助手.exe.config
+D:\Liscense\火拼俄罗斯掉线监控\火拼俄罗斯掉线监控助手.exe
+D:\Liscense\火拼俄罗斯掉线监控\火拼俄罗斯掉线监控助手.pdb
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯掉线监控工具\obj\Debug\火拼俄罗斯掉线监控助手.exe
+D:\VS2013\GitHub\TetrisPlugin_For_QQGame\火拼俄罗斯掉线监控工具\obj\Debug\火拼俄罗斯掉线监控助手.pdb

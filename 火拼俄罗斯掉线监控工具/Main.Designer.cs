@@ -220,6 +220,7 @@
             this.Text = "MainForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
+            this.SizeChanged += new System.EventHandler(this.Main_SizeChanged);
             this.groupbutton.ResumeLayout(false);
             this.groupbutton.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).EndInit();

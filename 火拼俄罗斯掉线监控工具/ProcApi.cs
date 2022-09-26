@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
-using System.Collections.Generic;
 
 namespace TetrisMonitor
 {
@@ -189,7 +188,6 @@ namespace TetrisMonitor
         #endregion
         #region 声明变量类
         internal static int[] ProcID;
-        internal static IntPtr[] ThrdID;
         internal static DateTime[] StartTime;
         internal static long[] QQid;
         #endregion
@@ -288,7 +286,6 @@ namespace TetrisMonitor
                     if (ps[n].MainWindowTitle.Contains("火拼俄罗斯方块"))
                     {
                         ProcID[n] = ps[n].Id;
-                       // ThrdID[n] = ps[n].Handle;
                         StartTime[n] = ps[n].StartTime;
                         QQid[n] = GetQQ获取游戏账号(ProcID[n]);
                     }

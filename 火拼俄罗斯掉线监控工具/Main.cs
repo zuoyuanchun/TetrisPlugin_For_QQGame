@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Text;
-using System.IO;
 using System.Collections;
+using System.Drawing;
+using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TetrisMonitor
@@ -33,15 +29,12 @@ namespace TetrisMonitor
         private string strexit = "退出";
         private bool Playing;
         private bool playstate;
-        private bool Lock1, Lock2;
         private void Main_Load(object sender, EventArgs e)
         {
-            base.Text = "QQ游戏_火拼俄罗斯掉线监控报警助手 V1.3   BY:工控闪剑";
+            base.Text = "QQ游戏_火拼俄罗斯掉线监控报警助手 V1.3.1   BY:工控闪剑";
             Playing = false;
             playstate = false;
             OldProcNum = 0;
-            Lock1 = false;
-            Lock2 = false;
             ListInit();
             MusicInit();
             MonProc = new Thread(new ThreadStart(MonitorProc));
@@ -142,7 +135,8 @@ namespace TetrisMonitor
                             this.Invoke(new Action(() =>
                             {
                                 TimeSpan run = (TimeSpan)RunTime[pnum];
-                                string logstr = "游戏掉线【PID:" + ProcID[pnum] + "★" + run.ToString("c") + "★" + QQid[pnum].ToString() + "】";
+                                string ys = string.Format("{0}:{1}:{2}", (run.Days * 24 + run.Hours).ToString(), run.Minutes.ToString(), run.Seconds.ToString());
+                                string logstr = "游戏掉线【PID:" + ProcID[pnum] + "★" + ys + "★" + QQid[pnum].ToString() + "】";
                                 loglist.ATC(logstr, Color.Red);
                             }));
                         }
@@ -174,7 +168,8 @@ namespace TetrisMonitor
                         this.Invoke(new Action(() =>
                         {
                             TimeSpan run = (TimeSpan)RunTime[c1];
-                            string logstr = "游戏窗口被关闭【PID:" + ProcID[c1] + "★" + run.ToString("c") + "★" + QQid[c1].ToString() + "】";
+                            string ys = string.Format("{0}:{1}:{2}", (run.Days * 24 + run.Hours).ToString(), run.Minutes.ToString(), run.Seconds.ToString());
+                            string logstr = "窗口被关闭【PID:" + ProcID[c1] + "★" + ys + "★" + QQid[c1].ToString() + "】";
                             loglist.ATC(logstr, Color.DarkBlue);
                         }));
 
@@ -262,7 +257,13 @@ namespace TetrisMonitor
         {
             System.Diagnostics.Process.Start("http://2950800.ysepan.com/");
         }
-       
+        private void Main_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+            }
+        }
         private void 托盘_MouseClick(object sender, MouseEventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)

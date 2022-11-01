@@ -12,7 +12,6 @@ namespace QQGameTool
             InitializeComponent();
         }
         #region 窗口加载事件和全局变量实例化
-        private int LicLevel;
         private byte[] tag自定义按键 = new byte[10];
         private bool MoveFlag;
         private int xPos;
@@ -26,7 +25,6 @@ namespace QQGameTool
             CheckKey();
             ReadKey();
             读取路径信息();
-            检查授权状态();
             读取按键配置();
             DiyDefaultPos();
             DiySavePos();
@@ -88,10 +86,6 @@ namespace QQGameTool
             {
                 reg.SetValue(Data.reg首次延时, "98");
             }
-            if (!reg.IsRegistryValueNameExist(Data.reg授权码))
-            {
-                reg.SetValue(Data.reg授权码, "1177161017");
-            }
             if (!reg.IsRegistryValueNameExist(Data.reg游戏路径))
             {
                 reg.SetValue(Data.reg游戏路径, "0");
@@ -107,8 +101,6 @@ namespace QQGameTool
             //
             string rk键盘速度 = reg.getValue(Data.reg键盘速度);
             string rk首次延时 = reg.getValue(Data.reg首次延时);
-            string rk授权码 = reg.getValue(Data.reg授权码);
-
             //
             if (rk显示速度 == "1")
             {
@@ -135,7 +127,6 @@ namespace QQGameTool
                 this.SuperFast.Checked = false;
             }
             reg = null;
-            Key验证授权();
 
             //
             speed参数值.Text = rk键盘速度;
@@ -220,58 +211,17 @@ namespace QQGameTool
                 tag自定义按键[6] = 32;
                 tag自定义按键[7] = 114;
             }
-
+            转换参数();
         }
-        private void 检查授权状态()
+        private void 转换参数()
         {
-            //LicLevel = 0;//开发时强制授权
-            if (LicLevel > 0)
-            {
-                Group31Reg参数设置.Enabled = true;
-                bt31读取参数.Enabled = true;
-                bt32默认参数.Enabled = true;
-                bt33写入参数.Enabled = true;
-            }
-            if (LicLevel > 15)
-            {
-                Panel11插件布局.Enabled = true;
-                Do1恢复默认.Enabled = true;
-                Do2保存更改.Enabled = true;
-            }
-            if (LicLevel > 20)
-            {
-                Panel22自杀延时.Enabled = true;
-                TimeHalValue.Text = "258";
-                TimeTenValue.Text = "11000";
-            }
-            if (LicLevel > 30)
-            {
-                Panel12LOGO文本.Enabled = true;
-            }
-        }
-        private void Key验证授权()
-        {
-            RegU reg = new RegU();
-            string KeyStr = reg.getValue(Data.reg授权码);
-            if (KeyStr == "2950800")
-            {
-                LicLevel = 17;
-                Key输入框.Text = "LV.3";
-                Key输入框.Enabled = false;
-            }
-            if (KeyStr == "zuoyuanchun")
-            {
-                LicLevel = 27;
-                Key输入框.Text = "LV.4";
-                Key输入框.Enabled = false;
-            }
-            if (KeyStr == "5127" | KeyStr == "1177161017")
-            {
-                LicLevel = 37;
-                Key输入框.Text = "LV.5";
-                Key输入框.Enabled = false;
-            }
-            检查授权状态();
+            keycw.Text = Data.键码表[(int)tag自定义按键[1]];//顺时针按键
+            keyccw.Text = Data.键码表[(int)tag自定义按键[2]];//逆时针按键
+            keyleft.Text = Data.键码表[(int)tag自定义按键[3]];//左移按键
+            keyright.Text = Data.键码表[(int)tag自定义按键[4]];//右移按键
+            keydw.Text = Data.键码表[(int)tag自定义按键[5]];//加速下落按键
+            keybot.Text = Data.键码表[(int)tag自定义按键[6]];//直接下落按键
+            keyshow.Text = Data.键码表[(int)tag自定义按键[7]];//显示隐藏插件窗口
         }
         #endregion
         #region 第一页:界面定制-控件事件
@@ -286,7 +236,6 @@ namespace QQGameTool
                 ((Button)sender).Text = LogoTopText1.Text;
             }
         }
-
         private void DiyCheckBox_MouseMove(object sender, MouseEventArgs e)
         {
             if (MoveFlag)
@@ -333,20 +282,14 @@ namespace QQGameTool
         {
             Panel11插件布局.Enabled = false;
             Panel12LOGO文本.Enabled = false;
+            Panel13自杀延时.Enabled = false;
             DiySavePos();
         }
-
         private void DoDefaultDiy_Click(object sender, EventArgs e)
         {
-            if (LicLevel > 15)
-            {
-                Panel11插件布局.Enabled = true;
-            }
-            if (LicLevel > 30)
-            {
-                Panel12LOGO文本.Enabled = true;
-            }
-
+            Panel11插件布局.Enabled = true;
+            Panel12LOGO文本.Enabled = true;
+            Panel13自杀延时.Enabled = true;
             tp1自动开始.Left = xDiyPos[1];
             tp1自动开始.Top = yDiyPos[1];
             tp2方块不落.Left = xDiyPos[2];
@@ -471,6 +414,27 @@ namespace QQGameTool
             }
             return Convert.ToByte(cpos);
         }
+        private void 自杀键盘_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar < '0' || e.KeyChar > '9';
+            if (e.Handled)
+            {
+                MessageBox.Show("只允许输入数字!", "警告");
+                ((TextBox)sender).Text = "1";
+                return;
+            }
+        }
+        private void 自杀键盘_TextChanged(object sender, EventArgs e)
+        {
+            int tlen = ((TextBox)sender).Text.Length;
+            int num = Convert.ToInt32(((TextBox)sender).Text);
+            if (tlen < 1 | tlen > 5 | num < 0 | num > 50000)
+            {
+                MessageBox.Show("自杀延迟上限不允许超过50秒(50000毫秒)!\r\n否则没有意义!", "警告");
+                ((TextBox)sender).Text = "1";
+                return;
+            }
+        }
         #endregion
         #region 第二页:操作按键-控件事件
         private void ReadDir读取进程路径_Click(object sender, EventArgs e)
@@ -487,7 +451,6 @@ namespace QQGameTool
                 MessageBox.Show("请先正常进入游戏(无需准备)\r\n然后再次点击此按钮", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void CoDir指定文件夹_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog FolDir = new FolderBrowserDialog();
@@ -507,26 +470,16 @@ namespace QQGameTool
                 }
             }
         }
-        private void 自杀键盘_KeyPress(object sender, KeyPressEventArgs e)
+        private void 键盘_KeyDown(object sender, KeyEventArgs e)
         {
-            e.Handled = e.KeyChar < '0' || e.KeyChar > '9';
-            if (e.Handled)
-            {
-                MessageBox.Show("只允许输入数字!", "警告");
-                ((TextBox)sender).Text = "1";
-                return;
-            }
+            byte tnum = Convert.ToByte(((TextBox)sender).Tag);//获取调用此方法的控件Tag编号
+            this.tag自定义按键[(int)tnum] = (byte)e.KeyValue;//获取吊用此方法控的件键盘码编号
+            ((TextBox)sender).Text = Data.键码表[(int)this.tag自定义按键[(int)tnum]];//返回键盘码编号对应的键码表文本内容
+            // this.shengcheng.Focus();//切换焦点防止二次输入
         }
-        private void 自杀键盘_TextChanged(object sender, EventArgs e)
+        private void 键盘_KeyPress(object sender, KeyPressEventArgs e)
         {
-            int tlen = ((TextBox)sender).Text.Length;
-            int num = Convert.ToInt32(((TextBox)sender).Text);
-            if (tlen < 1 | tlen > 5 | num < 0 | num > 50000) 
-            {
-                MessageBox.Show("自杀延迟上限不允许超过50秒(50000毫秒)!\r\n否则没有意义!", "警告");
-                ((TextBox)sender).Text = "1";
-                return;
-            }
+            e.Handled = true;//标记已经执行过键盘按键事件
         }
         private void sc生成按钮_Click(object sender, EventArgs e)
         {
@@ -602,7 +555,6 @@ namespace QQGameTool
                 SuperFast.Checked = false;
             }
         }
-
         private void delay滑动条_ValueChanged(object sender, EventArgs e)
         {
             //首次延时换算
@@ -614,7 +566,6 @@ namespace QQGameTool
             ReadKey();
             MessageBox.Show("配置数据读取完成");
         }
-
         private void cs默认参数按钮_Click(object sender, EventArgs e)
         {
             SpeedShow.Checked = true;
@@ -623,7 +574,6 @@ namespace QQGameTool
             speed滑动条.Value = 39;
             delay滑动条.Value = 98;
         }
-
         private void cs写入参数按钮_Click(object sender, EventArgs e)
         {
             WriteKey();
@@ -633,77 +583,21 @@ namespace QQGameTool
         #region 第五页:关于软件-页面控件事件
         private void link教学视频_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (LicLevel <= 10)
-            {
-                LicLevel += 5;
-            }
-            Key输入框.Enabled = true;
-            检查授权状态();
             link教学视频.LinkVisited = true;
             System.Diagnostics.Process.Start("https://space.bilibili.com/1177161017");
         }
         private void link个人博客_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (LicLevel <= 10)
-            {
-                LicLevel += 6;
-            }
-            Key输入框.Enabled = true;
-            检查授权状态();
             link个人博客.LinkVisited = true;
             System.Diagnostics.Process.Start("https://blog.csdn.net/zuoyuanchun");
         }
-        private void linkUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void link网盘链接_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            link网盘链接.LinkVisited = true;
             System.Diagnostics.Process.Start("http://2950800.ysepan.com/");
         }
-        private void Key输入框_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (Key输入框.TextLength > 0)
-            {
-                Key输入框.Text = "";
-            }
+        #endregion 
 
-        }
-
-        private void Key输入框_TextChanged(object sender, EventArgs e)
-        {
-            if (Key输入框.Text == "2950800")
-            {
-                RegU reg = new RegU();
-                reg.SetValue(Data.reg授权码, Key输入框.Text);
-                reg = null;
-                //
-                LicLevel = 17;
-                Key输入框.Text = "LV.3";
-                Key输入框.Enabled = false;
-            }
-            if (Key输入框.Text == "zuoyuanchun")
-            {
-                RegU reg = new RegU();
-                reg.SetValue(Data.reg授权码, Key输入框.Text);
-                reg = null;
-                //
-                LicLevel = 27;
-                Key输入框.Text = "LV.4";
-                Key输入框.Enabled = false;
-            }
-            if (Key输入框.Text == "5127" | Key输入框.Text == "1177161017")
-            {
-                RegU reg = new RegU();
-                reg.SetValue(Data.reg授权码, Key输入框.Text);
-                reg = null;
-                //
-                LicLevel = 37;
-                Key输入框.Text = "LV.5";
-                Key输入框.Enabled = false;
-            }
-            检查授权状态();
-        }
-        #endregion
-
-        
-
-        
+     
     }
 }

@@ -73,6 +73,46 @@ namespace QQGameTool.Properties {
         /// <summary>
         ///   查找 System.Byte[] 类型的本地化资源。
         /// </summary>
+        internal static byte[] mscorlib {
+            get {
+                object obj = ResourceManager.GetObject("mscorlib", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] System {
+            get {
+                object obj = ResourceManager.GetObject("System", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] System_Drawing {
+            get {
+                object obj = ResourceManager.GetObject("System_Drawing", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] System_Windows_Forms {
+            get {
+                object obj = ResourceManager.GetObject("System_Windows_Forms", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
         internal static byte[] TData {
             get {
                 object obj = ResourceManager.GetObject("TData", resourceCulture);

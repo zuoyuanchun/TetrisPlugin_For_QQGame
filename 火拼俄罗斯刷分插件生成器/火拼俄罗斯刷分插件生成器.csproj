@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QQGameTool</RootNamespace>
-    <AssemblyName>火拼俄罗斯刷分插件生成器</AssemblyName>
+    <AssemblyName>火拼俄罗斯刷分%28不落块%29插件生成器</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -45,12 +45,13 @@
     <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\Liscense\火拼俄罗斯刷分\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>..\..\..\..\Liscense\火拼俄罗斯刷分\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>icon.ico</ApplicationIcon>
@@ -105,6 +106,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\TData" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -123,6 +125,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\Tetris.exe" />
+    <None Include="Resources\System.Windows.Forms.dll" />
+    <None Include="Resources\System.Drawing.dll" />
+    <None Include="Resources\System.dll" />
+    <None Include="Resources\mscorlib.dll" />
+    <None Include="Resources\LoliCore32.dll" />
   </ItemGroup>
   <ItemGroup>
     <PublishFile Include="icon.ico">

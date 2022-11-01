@@ -60,58 +60,6 @@ namespace TetrisMonitor
             #region 大循环
             while (true)
             {
-                //获取游戏进程数据
-                #region 获取进程数据
-                Thread.Sleep(100);
-                int gcn = ProcApi.Chk检测游戏进程();
-                if (gcn == 0)
-                {
-                    this.Invoke(new Action(() =>
-                    {
-                        qqlist.Items.Clear();
-                    }));
-                }
-                if (gcn > 0 && gcn != OldProcNum)
-                {
-                    //新加入一个进程数量不变不进行轮询扫描数据,降低CPU使用率
-                    Thread.Sleep(3000);
-                    GameProcNum = ProcApi.Chk检测游戏进程();
-                    OldProcNum = GameProcNum;
-                    this.Invoke(new Action(() =>
-                    {
-                        qqlist.Items.Clear();
-                        for (int q = 0; q < GameProcNum; q++)
-                        {
-                            qqlist.Items.Add(ProcApi.QQid[q].ToString());
-                        }
-                    }));
-
-                    DateTime[] dttmp = ProcApi.StartTime;
-                    //历遍排序后的时间
-                    for (int a1 = 0; a1 < dttmp.Length; a1++)
-                    {
-                        //未排序指定下标数据与排序后数据相等
-                        if (ProcApi.ProcID[a1] > 0 && ProcApi.StartTime[a1] > DateTime.MinValue)
-                        {
-                            //有新游戏进程加入
-                            if (!StartTime.Contains(dttmp[a1]))
-                            {
-                                ProcID.Add(ProcApi.ProcID[a1]);//进程ID
-                                StartTime.Add(ProcApi.StartTime[a1]);//加入时间
-                                StopTime.Add(DateTime.MinValue);//退出时间
-                                RunTime.Add(TimeSpan.MinValue);//用时
-                                QQid.Add(ProcApi.QQid[a1]);//游戏账号
-                                ProcState.Add(strok);//状态
-                                this.Invoke(new Action(() =>
-                                {
-                                    string logstr = "新游戏窗口[PID:" + ProcID[a1] + "◆" + ProcApi.StartTime[a1].ToString("T") + "◆" + ProcApi.QQid[a1].ToString() + "]";
-                                    loglist.ATC(logstr, Color.Green);
-                                }));
-                            }
-                        }
-                    }
-                }
-                #endregion
                 //检查是否有掉线进程
                 #region 掉线进程检测
                 do
@@ -198,6 +146,58 @@ namespace TetrisMonitor
                 {
                     shijian.Text = t.ToString("yyyy/MM/dd") + "\r\n" + t.ToString("T");
                 }));
+                #endregion
+                //获取游戏进程数据
+                #region 获取进程数据
+                Thread.Sleep(100);
+                int gcn = ProcApi.Chk检测游戏进程();
+                if (gcn == 0)
+                {
+                    this.Invoke(new Action(() =>
+                    {
+                        qqlist.Items.Clear();
+                    }));
+                }
+                if (gcn > 0 && gcn != OldProcNum)
+                {
+                    //新加入一个进程数量不变不进行轮询扫描数据,降低CPU使用率
+                    Thread.Sleep(3000);
+                    GameProcNum = ProcApi.Chk检测游戏进程();
+                    OldProcNum = GameProcNum;
+                    this.Invoke(new Action(() =>
+                    {
+                        qqlist.Items.Clear();
+                        for (int q = 0; q < GameProcNum; q++)
+                        {
+                            qqlist.Items.Add(ProcApi.QQid[q].ToString());
+                        }
+                    }));
+
+                    DateTime[] dttmp = ProcApi.StartTime;
+                    //历遍排序后的时间
+                    for (int a1 = 0; a1 < dttmp.Length; a1++)
+                    {
+                        //未排序指定下标数据与排序后数据相等
+                        if (ProcApi.ProcID[a1] > 0 && ProcApi.StartTime[a1] > DateTime.MinValue)
+                        {
+                            //有新游戏进程加入
+                            if (!StartTime.Contains(dttmp[a1]))
+                            {
+                                ProcID.Add(ProcApi.ProcID[a1]);//进程ID
+                                StartTime.Add(ProcApi.StartTime[a1]);//加入时间
+                                StopTime.Add(DateTime.MinValue);//退出时间
+                                RunTime.Add(TimeSpan.MinValue);//用时
+                                QQid.Add(ProcApi.QQid[a1]);//游戏账号
+                                ProcState.Add(strok);//状态
+                                this.Invoke(new Action(() =>
+                                {
+                                    string logstr = "新游戏窗口[PID:" + ProcID[a1] + "◆" + ProcApi.StartTime[a1].ToString("T") + "◆" + ProcApi.QQid[a1].ToString() + "]";
+                                    loglist.ATC(logstr, Color.Green);
+                                }));
+                            }
+                        }
+                    }
+                }
                 #endregion
             }
             #endregion

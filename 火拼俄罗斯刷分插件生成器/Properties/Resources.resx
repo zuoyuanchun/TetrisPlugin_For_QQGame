@@ -121,6 +121,18 @@
   <data name="LoliCore32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LoliCore32.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="mscorlib" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mscorlib.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="System" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\System.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="System_Drawing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\System.Drawing.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="System_Windows_Forms" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\System.Windows.Forms.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="TData" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TData;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

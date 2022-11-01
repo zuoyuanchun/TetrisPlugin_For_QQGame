@@ -24,26 +24,13 @@ namespace QQGameTool
                "\r\n*  d.游戏掉线监控报警&自动关闭掉线窗口等功能作为独立软件另行发布!         *",
                "\r\n*                                                                         *",
                "\r\n*                                  BY:工控闪剑    Email 2590800@qq.com    *",
-               "\r\n*                                                        2022年9月19日    *",
+               "\r\n*                                                        2022年9月12日    *",
                "\r\n***************************************************************************",
                "\r\n",
-               "\r\n版本更新历史:",
-               "\r\n",
-               "\r\nDATE: 2022年9月19日",
-               "\r\n1.第三版发布,软件不再维护更新",
-               "\r\n",
-               "\r\n",
-               "\r\n■■■■■■■■感谢你能看到最后■■■■■■■■",
-               "\r\n",
-               "\r\n1.点击关于软件页面的三个文字链接",
-               "\r\n",
+               "\r\nDATE: 2022年11月01日",
+               "\r\n1.整合所有已测试通过功能,去除授权相关代码",
                "\r\n2.请大家多多支持本人B站和CSDN博客,更多精彩内容欢迎您的点击评论",
-               "\r\n",
-               "\r\n3.授权码输入正确后会显示LV.等级,目前最高LV.5,授权码一共5组,对应不同授权等级",
-               "\r\n",
-               "\r\n4.授权码与 纯数字组合或纯字母有关系,你在软件上或者打开的网址上都能看得到",
-               "\r\n",
-               "\r\n5.本软件纯属个人爱好开发,如发现BUG请发送E-mail到本人邮箱(截图+文字说明)",
+               "\r\n3.本软件纯属个人爱好开发,如发现BUG请发送E-mail到本人邮箱(截图+文字说明)",
                "\r\n"
            });
             生成提示 = string.Concat(new string[]
@@ -53,6 +40,34 @@ namespace QQGameTool
                 "\r\n鉴于安全考虑本软件不会关闭你的游戏窗口!",
                 "\r\n请关闭所有游戏窗口后重新点击生成按钮生成插件!"
             });
+            键码表 = new string[]
+           {"", "鼠标左键", "鼠标右键", "Cancel", "鼠标中键", "XButton1", "XButton2", "", "退格键", "Tab键",
+				"", "", "Clear", "回车键", "", "", "Shift", "Ctrl", "Alt", "Pause",
+				"CapsLock", "Kana", "Hangul", "Junja", "Final", "Hanja", "Kanji", "Esc键", "Convert", "Nonconvert",
+				"Accept", "Modechange", "空格键", "PageUp", "PageDown", "End", "Home", "←", "↑", "→",
+				"↓", "Select", "Print", "Execute", "Snapshot", "Insert", "DDelete", "Help", "0", "1",
+				"2", "3", "4", "5", "6", "7", "8", "9", "", "",
+				"", "", "", "", "", "A", "B", "C", "D", "E",
+				"F", "G", "H", "I", "J", "K", "L", "M", "N", "O",
+				"P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y",
+				"Z", "LWin", "RWin", "Apps", "", "Sleep", "NUM 0", "NUM 1", "NUM 2", "NUM 3",
+				"NUM 4", "NUM 5", "NUM 6", "NUM 7", "NUM 8", "NUM 9", "NUM *", "NUM +", "NUM Enter", "NUM -",
+				"NUM .", "NUM /", "F1键", "F2键", "F3键", "F4键", "F5键", "F6键", "F7键", "F8键",
+				"F9键", "F10键", "F11键", "F12键", "F13键", "F14键", "F15键", "F16键", "F17键", "F18键",
+				"F19键", "F20键", "F21键", "F22键", "F23键", "F24键", "", "", "", "",
+				"", "", "", "", "NumLock", "Scroll", "", "", "", "",
+				"", "", "", "", "", "", "", "", "", "",
+				"LShift", "RShift", "LCtrl", "RCtrl", "LAlt", "RAlt", "wwwBack", "wwwForward", "wwwRefresh", "wwwStop",
+				"wwwSearch", "wwwFavorites", "wwwHome", "VolumeMute", "VolumeDown", "VolumeUp", "MediaNext", "MediaPrev", "MediaStop", "MediaPlay",
+				"LaunchMal", "LaunchMediaSelect", "LaunchApp1", "LaunchApp2", "", "", ";:", "=+", ",<", "-_",
+				".>", "/?", "`~", "", "", "", "", "", "", "",
+				"", "", "", "", "", "", "", "", "", "",
+				"", "", "", "", "", "", "", "", "", "[{",
+				"＼｜", "]}", "‘“", "Oem 8", "", "", "Oem 102", "", "", "",
+				"", "Packet", "", "", "", "", "", "", "", "ProcessKey",
+				"", "", "", "", "", "", "Attn", "Crsel", "Exsel", "Ereof",
+				"Play", "Zoom", "Noname", "Pa1", "OemClear" 
+           };
             键盘速度 = new string[]
            {
                "无效值","300","500","700","900","1100","1300","1500","1700","1900",
@@ -80,7 +95,6 @@ namespace QQGameTool
             reg超快响应 = "SuperFast";
             reg键盘速度 = "Speed";
             reg首次延时 = "Delay";
-            reg授权码 = "LicenseKey";
             reg游戏路径 = "GamePath";
         }
         #endregion
@@ -128,6 +142,7 @@ namespace QQGameTool
         //数组变量
         internal static string 软件说明;
         internal static string 生成提示;
+        internal static string[] 键码表;
         internal static string[] 键盘速度;
         internal static int[] 首次延时;
         //注册表子键
@@ -136,7 +151,6 @@ namespace QQGameTool
         internal static string reg超快响应;
         internal static string reg键盘速度;
         internal static string reg首次延时;
-        internal static string reg授权码;
         internal static string reg游戏路径;
 
     }
